@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LA MATRIU | Protocol 01</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #00fff9;
+            --neon-yellow: #fbbf24;
+            --dark-bg: #010409;
+            --panel-bg: rgba(13, 17, 23, 0.95);
+        }
+
+        body {
+            margin: 0; padding: 20px;
+            background-color: var(--dark-bg);
+            background-image: radial-gradient(circle at 2px 2px, rgba(0, 255, 249, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+            color: #e0ffff;
+            font-family: 'Share Tech Mono', monospace;
+            min-height: 100vh;
+        }
+
+        /* Efecte Scanline */
+        body::after {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: repeating-linear-gradient(0deg, rgba(0,0,0,0.1) 0px, rgba(0,0,0,0.1) 1px, transparent 1px, transparent 2px);
+            pointer-events: none; z-index: 100;
+        }
+
+        .container { max-width: 1100px; margin: 30px auto; }
+
+        /* Capçalera del Protocol */
+        header {
+            border-left: 4px solid var(--neon-blue);
+            padding: 15px 25px;
+            margin-bottom: 40px;
+            background: rgba(0, 255, 249, 0.03);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .breadcrumb { font-size: 0.75rem; color: var(--neon-blue); letter-spacing: 2px; }
+        .protocol-title h1 { 
+            font-family: 'Orbitron', sans-serif; 
+            margin: 5px 0 0 0; 
+            font-size: 1.8rem; 
+            color: white;
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        .btn-up {
+            text-decoration: none;
+            color: var(--neon-blue);
+            border: 1px solid var(--neon-blue);
+            padding: 6px 15px;
+            font-size: 0.75rem;
+            transition: 0.3s;
+        }
+        .btn-up:hover { background: var(--neon-blue); color: var(--dark-bg); }
+
+        /* Grid d'Eines (Mòduls) */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .tool-card {
+            background: var(--panel-bg);
+            border: 1px solid rgba(0, 255, 249, 0.2);
+            padding: 25px;
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 90% 100%, 0 100%);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tool-card:hover {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 255, 249, 0.2);
+            transform: scale(1.02);
+        }
+
+        .tool-id {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--neon-blue);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .tool-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            margin: 5px 0 15px 0;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+
+        .tool-card p {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        /* Estil per a la Missió Final (Repte) */
+        .mission-special {
+            border-color: var(--neon-yellow);
+            background: rgba(251, 191, 36, 0.05);
+        }
+        .mission-special:hover {
+            border-color: var(--neon-yellow);
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.2);
+        }
+        .mission-special .tool-id { color: var(--neon-yellow); }
+        .mission-special h3 { color: var(--neon-yellow); }
+
+        /* Decoració final de targeta */
+        .card-footer {
+            margin-top: 20px;
+            font-size: 0.65rem;
+            color: rgba(0, 255, 249, 0.5);
+            text-transform: uppercase;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="protocol-title">
+            <span class="breadcrumb">CORE > SECTOR_01 > PROTOCOL_01</span>
+            <h1>DIVISIBILITAT</h1>
+        </div>
+        <a href="../index.html" class="btn-up">BACK_TO_SECTOR</a>
+    </header>
+
+    <div class="tools-grid">
+
+        <a href="https://germanpazo87.github.io/calculadora-divisors/" class="tool-card">
+            <span class="tool-id">MODULE_EXEC // P-01</span>
+            <h3>ARCS DE DIVISORS</h3>
+            <p>Arquitectura de parelles de divisors. Visualització simètrica del sistema de descomposició.</p>
+            <div class="card-footer">Status: Operational // Data_Link: Active</div>
+        </a>
+
+	 <a href="https://germanpazo87.github.io/criteris-divisibilitat/" class="tool-card">
+            <span class="tool-id">MODULE_EXEC // P-02</span>
+            <h3>PATRONS DE MÚLTIPLES</h3>
+            <p>Escàner de freqüències numèriques i identificació de coincidències visuals en graella.</p>
+            <div class="card-footer">Status: Operational // Data_Link: Active</div>
+        </a>
+
+        <a href="https://germanpazo87.github.io/repte-divisibilitat/" class="tool-card mission-special">
+            <span class="tool-id">FINAL_MISSION // P-03</span>
+            <h3>DIVISIBILITAT EXTREMA</h3>
+            <p>Prova d'estrès del sistema. Entrenament d'agilitat en descodificació amb pèrdua de dades (vides).</p>
+            <div class="card-footer" style="color: var(--neon-yellow);">Security Level: Admin // Time_Limit: Enabled</div>
+        </a>
+
+        <a href="https://germanpazo87.github.io/primers/" class="tool-card">
+            <span class="tool-id">MODULE_EXEC // P-04</span>
+            <h3>NODES PRIMERS</h3>
+            <p>Protocol de filtratge de seguretat. Identificació de dades pures (Criba d'Eratòstenes).</p>
+            <div class="card-footer">Status: Operational // Data_Link: Active</div>
+        </a>
+
+        <a href="https://germanpazo87.github.io/calculadora-mcm/" class="tool-card">
+            <span class="tool-id">MODULE_EXEC // P-05</span>
+            <h3>SINCRO_MCM</h3>
+            <p>Algoritme de coincidència mínima. Càlcul de la sincronització de dos fluxos de dades.</p>
+            <div class="card-footer">Status: Operational // Data_Link: Active</div>
+        </a>
+
+        <a href="https://germanpazo87.github.io/calculadora-mcd/" class="tool-card">
+            <span class="tool-id">MODULE_EXEC // P-06</span>
+            <h3>DESCO_MCD</h3>
+            <p>Protocol de fragmentació comuna. Extracció del divisor compartit de màxima densitat.</p>
+            <div class="card-footer">Status: Operational // Data_Link: Active</div>
+        </a>
+
+
+    </div>
+</div>
+
+</body>
+</html>
